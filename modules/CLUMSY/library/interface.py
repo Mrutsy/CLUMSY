@@ -37,10 +37,12 @@ def general(user_language):
     print(localization.view("system", "info"))
     print(localization.view("system", "menu"))
     print(localization.view("system", "author"))
-    input(localization.view(user_language, "input"))
+
+    return input(localization.view(user_language, "input"))
 
 
 def control_panel(user_language):
     while True:
-        general(user_language)
-        user_input = input(localization.view(user_language, "input"))
+
+        if general(user_language) == 0:
+            pass
