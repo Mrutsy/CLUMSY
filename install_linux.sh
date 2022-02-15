@@ -131,7 +131,7 @@ fi
 
 if [ "$check_python" = "valid" ] &&  [ "$check_git" = "valid" ]; then
 
-  git clone https://github.com/zhilllllka/CLUMSY.git -b latest CLUMSY
+  git clone https://github.com/zhilllllka/CLUMSY.git -b stable CLUMSY
   rm -f ./install_windows.cmd
   rm -f ./install_macos.scpt
   rm -f ./install_linux.sh
