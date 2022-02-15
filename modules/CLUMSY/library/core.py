@@ -148,11 +148,11 @@ except Exception as Error:
 else:
 
     #  Загрузочный экран.
-    time.sleep(1)
+    #time.sleep(1)
     os.system("clear")
     print(localization.view(user_language="system", phrase="boot_screen"))
     print(localization.view(user_language="system", phrase="version_program"))
-    time.sleep(3)
+    #time.sleep(3)
 
     # Отображаем меню программы.
     interface.control_panel(user_language=language)

@@ -1,7 +1,7 @@
 import time
 import os
 import localization
-
+import update
 
 def screensaver():
     os.system("clear")
@@ -38,11 +38,14 @@ def general(user_language):
     print(localization.view("system", "menu"))
     print(localization.view("system", "author"))
 
-    return input(localization.view(user_language, "input"))
+    if int(input(localization.view(user_language, "input"))):
+        return
+    else:
+        return False
 
 
 def control_panel(user_language):
     while True:
-
-        if general(user_language) == 0:
-            pass
+        update.check_github()
+        if general(user_language) == 000:
+            os.system("git pull")

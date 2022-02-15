@@ -19,7 +19,7 @@ def create_log(text):
 def add(text, level):
 
     # Отладка
-    level = "all"
+    level = "none"
 
     if level == "logs":
         create_log(text=text)
@@ -29,3 +29,5 @@ def add(text, level):
     elif level == "all":
         create_log(text=text)
         print(text)
+    elif level == "none":
+        pass
