@@ -3,6 +3,7 @@ import os
 import localization
 import update
 
+
 def screensaver():
     os.system("clear")
     print(localization.view(user_language="system", phrase="screensaver"))
@@ -38,14 +39,26 @@ def general(user_language):
     print(localization.view("system", "menu"))
     print(localization.view("system", "author"))
 
-    if int(input(localization.view(user_language, "input"))):
-        return
+    user_input = input(localization.view(user_language, "input"))
+
+    if int(user_input):
+        return user_input
     else:
         return False
 
 
 def control_panel(user_language):
+
     while True:
         update.check_github()
-        if general(user_language) == 000:
-            os.system("git pull")
+
+        user_input = general(user_language)
+
+        if user_input == "000":
+            print(os.system("git pull"))
+        elif user_input == "999":
+            exit("Exited")
+        elif user_input == "777":
+            time.sleep(3)
+            print("OK")
+            time.sleep(3)
