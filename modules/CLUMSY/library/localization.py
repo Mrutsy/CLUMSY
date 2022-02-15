@@ -1,5 +1,5 @@
 
-version_program = "v: 0.0.3 ALPHA | d: 15.02.2022"
+version_program = "v: 1 DEV | d: 15.02.2022"
 
 
 def system(phrase):
@@ -171,8 +171,8 @@ def ru(phrase):
         "screensaver":
             "",
 
-        "":
-            "",
+        "input":
+            "Введите значение указанное в скобке: ",
 
         "":
             "",

@@ -31,12 +31,16 @@ def user_input():
     pass
 
 
+def general(user_language):
+    os.system("clear")
+    print(localization.view("system", "description"))
+    print(localization.view("system", "info"))
+    print(localization.view("system", "menu"))
+    print(localization.view("system", "author"))
+    input(localization.view(user_language, "input"))
+
+
 def control_panel(user_language):
     while True:
-        os.system("clear")
-        print(localization.view("system", "description"))
-        print(localization.view("system", "info"))
-        print(localization.view("system", "menu"))
-        print(localization.view("system", "author"))
-        user_input()
-        break
+        general(user_language)
+        user_input = input(localization.view(user_language, "input"))
