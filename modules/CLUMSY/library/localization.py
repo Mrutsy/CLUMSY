@@ -1,5 +1,5 @@
 
-version_program = "v: 1.0.0.2 DEV | d: 15.02.2022"
+version_program = "v: 1.0.0.3 DEV | d: 15.02.2022"
 
 
 def system(phrase):

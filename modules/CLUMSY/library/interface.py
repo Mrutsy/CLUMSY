@@ -10,28 +10,6 @@ def screensaver():
     time.sleep(3)
 
 
-def notify(user_language):
-    pass
-
-
-def header(user_language):
-    print(r"|'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''|")
-    print(r"|------------------------- C L U M S Y - Deploy the WEB server with one toe :) ---------------------------|")
-    print(f"\_____________________________________ {localization.view('system', 'version program')} ____________________________________/")
-
-
-def main(user_language):
-    print(f"=(1)=> ")
-
-
-def footer(user_language):
-    pass
-
-
-def user_input():
-    pass
-
-
 def general(user_language):
     os.system("clear")
     print(localization.view("system", "description"))
@@ -54,12 +32,31 @@ def control_panel(user_language):
 
         user_input = general(user_language)
 
-        if user_input == "888":
+        if user_input == "0":
+            # Обновить интерфейс программы.
+            pass
+
+        elif user_input == "1":
+            pass
+
+        elif user_input == "2":
+            pass
+
+        elif user_input == "3":
+            pass
+
+        elif user_input == "4":
+            pass
+
+        elif user_input == "888":
+            # Обновить версию программы.
             print(os.system("git pull"))
             exit(os.system("sh run.sh"))
+
         elif user_input == "999":
-            exit("Exited")
-        elif user_input == "777":
-            time.sleep(3)
-            print("OK")
-            time.sleep(3)
+            # Выйти из программы.
+            exit("Завершение программы")
+
+        elif user_input == "000":
+            # Пасхальное сообщение.
+            exit("Пасхальное сообщение")
