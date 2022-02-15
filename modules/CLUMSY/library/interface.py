@@ -56,7 +56,6 @@ def control_panel(user_language):
 
         if user_input == "888":
             print(os.system("git pull"))
-            time.sleep(1)
             exit(os.system("sh run.sh"))
         elif user_input == "999":
             exit("Exited")
