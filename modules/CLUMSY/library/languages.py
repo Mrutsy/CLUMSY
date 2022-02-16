@@ -3,8 +3,9 @@ import os
 
 def system(phrase):
     phrases = {
+
         "version_program":
-            "1.1.0 DEV",
+            "1.1.1 DEV",
 
         "date_program":
             "16.02.2022",
@@ -12,10 +13,55 @@ def system(phrase):
         "author_program":
             "Created with ❤ by Roman Zhilkin - @zhilllllka",
 
-        "author1":
+        "launch_program":
+            "\n\n -----------------------------------------------------------\n"
+            "|   Запуск программы."
+            " * Launching the program."
+            " * 启动程序。|"
+            "\n -----------------------------------------------------------\n"
+            "~ | - Успешная операция * * ~\n"
+            "~ || - Не удачная операция * * ~\n"
+            "~ ||| - Предупреждение * * ~\n"
+            "~ |||| - Фатальная операция * * ~\n"
+            "~ ||||| - Завершение программы * * ~\n"
+            "\n",
+
+        "launch_program_false":
+            "||||| Программу запустить не удалось.",
+
+        "check_file_program_settings":
+            "Проверяю существует ли файл настроек программы."
+            " *"
+            " *",
+
+        "check_file_program_settings_true":
+            "| Файл настроек программы существует."
+            " *"
+            " *",
+
+        "check_file_program_settings_false":
+            "|||| Файл настроек программы не обнаружен."
+            " *"
+            " *",
+
+        "ended_program":
+            " ||||| Завершение программы"
+            " *"
+            " *",
+
+        "author3":
             "Created with ❤ by Roman Zhilkin - @zhilllllka",
 
-        "author2":
+        "author3":
+            "Created with ❤ by Roman Zhilkin - @zhilllllka",
+
+        "author3":
+            "Created with ❤ by Roman Zhilkin - @zhilllllka",
+
+        "author3":
+            "Created with ❤ by Roman Zhilkin - @zhilllllka",
+
+        "author3":
             "Created with ❤ by Roman Zhilkin - @zhilllllka",
 
         "author3":
@@ -23,7 +69,7 @@ def system(phrase):
 
     }
 
-    if phrases[phrase]:
+    if phrase in phrases:
         return phrases[phrase]
     else:
         return False
@@ -31,6 +77,10 @@ def system(phrase):
 
 def ru(phrase):
     phrases = {
+
+        "launch_program_true":
+            "Программа успешно запущена!",
+
         "slogan":
             f"#                              Разверни WEB - сервер одним пальцем ноги.                             #\n",
 
@@ -84,37 +134,36 @@ def ru(phrase):
             f"{system('author_program')}",
     }
 
-    return phrases[phrase]
+    if phrase in phrases:
+        return phrases[phrase]
+    else:
+        return False
 
 
-def en(phrase):
-    phrases = {
-        "":
-            "",
-        "slogan":
-            f"#                                Deploy the WEB server with one toe.                                 #\n",
-    }
-
-    return phrases[phrase]
+def change():
+    pass
 
 
-def cn(phrase):
-    phrases = {
-        "":
-            "",
-        "slogan":
-            f"#                                      用一个脚趾部署WEB服务器。                                     #\n",
-    }
+def check_phrase(language, phrase):
+    if language == "system":
+        getting_phrase = system(phrase)
+    elif language == "ru":
+        getting_phrase = ru(phrase)
+    else:
+        return f"|| Не удалось обнаружить языковой пакет: {language}"
 
-    return phrases[phrase]
+    if getting_phrase:
+        return getting_phrase
+    else:
+        return f"|| Не удалось обнаружить фразу в языковом пакете: {language} | {phrase}"
 
 
-def view(language, phrase):
-    if language == "ru":
-        return ru(phrase)
-    elif language == "en":
-        return en(phrase)
-    elif language == "cn":
-        return cn(phrase)
+# Получить фразу из языка.
+def get(language, phrase):
+
+    phrase = check_phrase(language, phrase)
+
+    if phrase:
+        return phrase
     else:
         return False

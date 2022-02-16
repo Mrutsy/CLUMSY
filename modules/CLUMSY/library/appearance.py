@@ -20,14 +20,14 @@ def control_panel(user_language):
             f"#                           | |     | |    | | | | | |\/| | \___ \  \ V /                            #\n"
             f"#                           | |___  | |___ | |_| | | |  | |  ___) |  | |                             #\n"
             f"#                            \____| |_____\ \___/  |_|  |_| |____/   |_|                             #\n"
-            f"{languages.view(language=user_language, phrase='slogan')}"
+            f"{languages.get(language=user_language, phrase='slogan')}"
             f"#                                                                                                    #\n"
             f"#----------------------------------------------------------------------------------------------------#"
             f"\n|===>           {languages.system('version_program')} |"
             f" {languages.system('date_program')} |"
             f" {languages.system('author_program')}           <===|\n"
             f"#----------------------------------------------------------------------------------------------------#\n"
-
+            f"#                                                                                                    #\n"
             f"#                                                                                                    #"
         )
 
@@ -35,8 +35,8 @@ def control_panel(user_language):
         if notify:
             # Вывод оповещения.
             print(
-                f"{languages.view(language=user_language, phrase=notify_type)}"
-                f"{languages.view(language=user_language, phrase=notify_code)}"
+                f"{languages.get(language=user_language, phrase=notify_type)}"
+                f"{languages.get(language=user_language, phrase=notify_code)}"
             )
 
         # Вывод информации.
@@ -44,15 +44,15 @@ def control_panel(user_language):
             f"#                                                                                                    #\n"
             # f"{languages.view(language=user_language, phrase='info_title')}"
             f"#                                                                                                    #\n"
-            f"{languages.view(language=user_language, phrase='info_items_status')}"
+            f"{languages.get(language=user_language, phrase='info_items_status')}"
             f"#                                                                                                    #"
         )
 
         # Вывод меню.
         print(
             f"#                                                                                                    #\n"
-            f"{languages.view(language=user_language, phrase='menu_title')}"
-            f"{languages.view(language=user_language, phrase='menu_items')}"
+            f"{languages.get(language=user_language, phrase='menu_title')}"
+            f"{languages.get(language=user_language, phrase='menu_items')}"
             f"#                                                                                                    #\n"
             f"######################################################################################################\n"
             f"#                                        | Made in Russia |\n"
@@ -62,7 +62,7 @@ def control_panel(user_language):
         # Пользовательский ввод.
         try:
 
-            user_input = int(input(languages.view(language=user_language, phrase='input')))
+            user_input = int(input(languages.get(language=user_language, phrase='input')))
         except ValueError:
             notify = True
             notify_type = "ERROR"
@@ -83,7 +83,7 @@ def control_panel(user_language):
                 notify_code = "SUCCESS_update_interface"
             elif user_input == 9:
                 os.system("clear")
-                exit(languages.view(language=user_language, phrase='sign_out'))
+                exit(languages.get(language=user_language, phrase='sign_out'))
             else:
                 notify = True
                 notify_type = "ERROR"

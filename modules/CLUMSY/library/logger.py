@@ -19,9 +19,9 @@ def create_log(text):
 def add(text, level):
 
     # Отладка
-    level = "none"
+    #level = "none"
 
-    if level == "logs":
+    if level == "log":
         create_log(text=text)
     elif level == "user":
         now = datetime.now()
@@ -31,3 +31,5 @@ def add(text, level):
         print(text)
     elif level == "none":
         pass
+
+    return text
