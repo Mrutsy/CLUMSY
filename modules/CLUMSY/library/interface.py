@@ -57,6 +57,6 @@ def control_panel(user_language):
             # Выйти из программы.
             exit("Завершение программы")
 
-        elif user_input == "000":
+        elif user_input == "123":
             # Пасхальное сообщение.
             exit("Пасхальное сообщение")

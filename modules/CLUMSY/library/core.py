@@ -6,8 +6,9 @@ import configparser
 import os
 import pathlib
 import time
-
+import appearance
 import localization
+import languages
 import logger
 import interface
 
@@ -147,12 +148,8 @@ except Exception as Error:
 # Программа прошла все проверки и готова к запуску интерфейса.
 else:
 
-    #  Загрузочный экран.
-    #time.sleep(1)
-    os.system("clear")
-    print(localization.view(user_language="system", phrase="boot_screen"))
-    print(localization.view(user_language="system", phrase="version_program"))
-    #time.sleep(3)
+    # Запускаем загрузочный экран.
+#    appearance.boot_screen(user_language="ru")
 
-    # Отображаем меню программы.
-    interface.control_panel(user_language=language)
+    # Запускаем панель управления.
+    appearance.control_panel(user_language="ru")
