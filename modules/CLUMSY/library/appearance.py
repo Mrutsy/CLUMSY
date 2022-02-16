@@ -1,23 +1,5 @@
 import os
-import time
-
 import languages
-
-
-def boot_screen(user_language):
-    print(
-        f"\n"
-        f"                               ____   _      _   _   __  __   ____  __   __ \n"
-        f"                              / ___| | |    | | | | |  \/  | / ___| \ \ / / \n"
-        f"                             | |     | |    | | | | | |\/| | \___ \  \ V /  \n"
-        f"                             | |___  | |___ | |_| | | |  | |  ___) |  | |   \n"
-        f"                              \____| |_____\ \___/  |_|  |_| |____/   |_|   \n"
-        f"{languages.view(language=user_language, phrase='slogan')}"
-        f"\n"
-        f"\n|===>     {languages.system('version_program')} | {languages.system('date_program')} | {languages.system('author_program')}     <===|\n"
-    )
-
-    time.sleep(0)
 
 
 def control_panel(user_language):
@@ -46,51 +28,32 @@ def control_panel(user_language):
             f"#                                                                                                    #"
         )
 
-        # Вывод имени и слогана программы.
-        #print(
-        #    f"#                                                                                                    #\n"
-        #    f"#------------------------------------------- C L U M S Y --------------------------------------------#\n"
-        #    f"{languages.view(language=user_language, phrase='slogan')}"
-        #    f"#----------------------------------------------------------------------------------------------------#\n"
-        #    f"#                                                                                                    #"
-        #)
-
         # Если есть оповещение то выводим его.
         if notify:
 
-            if notify_type == "ERROR":
-                # Вывод оповещения.
-                print(
-                    f"{languages.view(language=user_language, phrase='ERROR')}"
-                    f"{languages.view(language=user_language, phrase=notify_code)}"
-                )
+            # Вывод оповещения.
+            print(
+                f"{languages.view(language=user_language, phrase=notify_type)}"
+                f"{languages.view(language=user_language, phrase=notify_code)}"
+            )
 
-        # Вывод информации о программе.
+        # Вывод информации.
         print(
             f"#                                                                                                    #\n"
-            f"#------------------------------------------- C L U M S Y --------------------------------------------#\n"
-            f"{languages.view(language=user_language, phrase='slogan')}"
-            f"#----------------------------------------------------------------------------------------------------#\n"
+            f"{languages.view(language=user_language, phrase='info_title')}"
+            f"#                                                                                                    #\n"
+            f"{languages.view(language=user_language, phrase='info_items_status')}"
             f"#                                                                                                    #"
         )
 
-        # Вывод меню программы.
+        # Вывод меню.
         print(
             f"#                                                                                                    #\n"
-            f"#------------------------------------------- C L U M S Y --------------------------------------------#\n"
-            f"{languages.view(language=user_language, phrase='slogan')}"
-            f"#----------------------------------------------------------------------------------------------------#\n"
+            f"{languages.view(language=user_language, phrase='menu_title')}"
+            f"#                                                                                                    #\n"
+            f"{languages.view(language=user_language, phrase='menu_items')}"
             f"#                                                                                                    #"
         )
-
-        # Вывод информации о версии и авторе программы.
-        #print(
-        #    f"#                                                                                                    #\n"
-        #    f"#----------------------------------------------------------------------------------------------------#\n"
-        #    f"{languages.view(language=user_language, phrase='footer')}"
-        #    f"#----------------------------------------------------------------------------------------------------#\n"
-        #    f"#                                                                                                    #"
-        #)
 
         # Пользовательский ввод.
         try:
@@ -100,10 +63,17 @@ def control_panel(user_language):
             notify = True
             notify_type = "ERROR"
             notify_code = "ERROR_input_dont_number"
-            #print(languages.view(language=user_language, phrase='wrong_input'))
-            #time.sleep(5)
         else:
             # Отключаем отображение оповещения, так как оно уже было показано.
             notify = False
 
-            pass
+            if user_input == 0:
+                notify = True
+                notify_type = "SUCCESS"
+                notify_code = "SUCCESS_update_interface"
+            elif user_input == 8:
+                print(os.system("git pull"))
+                exit(os.system("sh run.sh"))
+                notify = True
+                notify_type = "SUCCESS"
+                notify_code = "SUCCESS_update_interface"
