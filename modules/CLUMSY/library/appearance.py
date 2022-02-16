@@ -3,7 +3,6 @@ import languages
 
 
 def control_panel(user_language):
-
     # Так как оповещение еще не создано, отключаем его отображение и делаем пустым его код.
     notify = False
     notify_type = None
@@ -23,13 +22,12 @@ def control_panel(user_language):
             f"#                            \____| |_____\ \___/  |_|  |_| |____/   |_|                             #\n"
             f"{languages.view(language=user_language, phrase='slogan')}"
             f"#                                                                                                    #\n"
-            
+
             f"#                                                                                                    #"
         )
 
         # Если есть оповещение то выводим его.
         if notify:
-
             # Вывод оповещения.
             print(
                 f"{languages.view(language=user_language, phrase=notify_type)}"
@@ -39,7 +37,7 @@ def control_panel(user_language):
         # Вывод информации.
         print(
             f"#                                                                                                    #\n"
-            #f"{languages.view(language=user_language, phrase='info_title')}"
+            # f"{languages.view(language=user_language, phrase='info_title')}"
             f"#                                                                                                    #\n"
             f"{languages.view(language=user_language, phrase='info_items_status')}"
             f"#                                                                                                    #"
@@ -49,7 +47,6 @@ def control_panel(user_language):
         print(
             f"#                                                                                                    #\n"
             f"{languages.view(language=user_language, phrase='menu_title')}"
-            f"#                                                                                                    #\n"
             f"{languages.view(language=user_language, phrase='menu_items')}"
             f"#                                                                                                    #\n"
             f"#----------------------------------------------------------------------------------------------------#"
@@ -81,3 +78,10 @@ def control_panel(user_language):
                 notify = True
                 notify_type = "SUCCESS"
                 notify_code = "SUCCESS_update_interface"
+            elif user_input == 9:
+                os.system("clear")
+                exit(languages.view(language=user_language, phrase='sign_out'))
+            else:
+                notify = True
+                notify_type = "ERROR"
+                notify_code = "ERROR_unknown_menu"
