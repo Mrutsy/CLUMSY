@@ -3,6 +3,8 @@ import os
 
 def system(phrase):
     phrases = {
+        "check":
+            True,
 
         "version_program":
             "1.1.1 DEV",
@@ -29,6 +31,20 @@ def system(phrase):
         "launch_program_false":
             "||||| Программу запустить не удалось.",
 
+        "check_file_user_settings":
+            "Проверяю существует ли файл настроек пользователя."
+            " *"
+            " *",
+
+        "check_file_user_settings_true":
+            "| Файл настроек пользователя существует."
+            " *"
+            " *",
+
+        "check_file_user_settings_false":
+            "|||| Файл настроек пользователя не обнаружен."
+            " *"
+            " *",
         "check_file_program_settings":
             "Проверяю существует ли файл настроек программы."
             " *"
@@ -77,6 +93,8 @@ def system(phrase):
 
 def ru(phrase):
     phrases = {
+        "check":
+            True,
 
         "launch_program_true":
             "Программа успешно запущена!",
@@ -144,26 +162,32 @@ def change():
     pass
 
 
-def check_phrase(language, phrase):
+def check(language, phrase="check"):
     if language == "system":
-        getting_phrase = system(phrase)
+        return system(phrase)
     elif language == "ru":
-        getting_phrase = ru(phrase)
+        return ru(phrase)
     else:
-        return f"|| Не удалось обнаружить языковой пакет: {language}"
+        return False
+
+
+def get_phrase(language, phrase):
+
+    getting_phrase = check(language, phrase)
 
     if getting_phrase:
         return getting_phrase
     else:
-        return f"|| Не удалось обнаружить фразу в языковом пакете: {language} | {phrase}"
+        return False
 
 
 # Получить фразу из языка.
 def get(language, phrase):
 
-    phrase = check_phrase(language, phrase)
-
-    if phrase:
-        return phrase
+    if check(language):
+        if get_phrase(language, phrase):
+            return get_phrase(language, phrase)
+        else:
+            return f"|| Не удалось обнаружить фразу в языковом пакете: {language} | {phrase}"
     else:
-        return False
+        return f"|| Не удалось обнаружить языковой пакет: {language}"
