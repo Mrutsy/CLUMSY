@@ -4,7 +4,7 @@ import os
 def system(phrase):
     phrases = {
         "version_program":
-            "1.0.9 DEV",
+            "1.1.0 DEV",
 
         "date_program":
             "16.02.2022",

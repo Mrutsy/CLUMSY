@@ -22,6 +22,11 @@ def control_panel(user_language):
             f"#                            \____| |_____\ \___/  |_|  |_| |____/   |_|                             #\n"
             f"{languages.view(language=user_language, phrase='slogan')}"
             f"#                                                                                                    #\n"
+            f"#----------------------------------------------------------------------------------------------------#"
+            f"\n|===>           {languages.system('version_program')} |"
+            f" {languages.system('date_program')} |"
+            f" {languages.system('author_program')}           <===|\n"
+            f"#----------------------------------------------------------------------------------------------------#\n"
 
             f"#                                                                                                    #"
         )
@@ -49,11 +54,9 @@ def control_panel(user_language):
             f"{languages.view(language=user_language, phrase='menu_title')}"
             f"{languages.view(language=user_language, phrase='menu_items')}"
             f"#                                                                                                    #\n"
-            f"#----------------------------------------------------------------------------------------------------#"
-            f"\n|===>           {languages.system('version_program')} |"
-            f" {languages.system('date_program')} |"
-            f" {languages.system('author_program')}           <===|\n"
-            f"#----------------------------------------------------------------------------------------------------#"
+            f"######################################################################################################\n"
+            f"#                                        | Made in Russia |\n"
+            f"#                                         ################"
         )
 
         # Пользовательский ввод.
