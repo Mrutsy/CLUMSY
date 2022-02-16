@@ -14,7 +14,7 @@ def control_panel(user_language):
         os.system("clear")
 
         print(
-            f"######################################################################################################"
+            f"######################################################################################################\n"
             f"#                                                                                                    #\n"
             f"#                             ____   _      _   _   __  __   ____  __   __                           #\n"
             f"#                            / ___| | |    | | | | |  \/  | / ___| \ \ / /                           #\n"
@@ -51,7 +51,7 @@ def control_panel(user_language):
             f"{languages.view(language=user_language, phrase='menu_title')}"
             f"#                                                                                                    #\n"
             f"{languages.view(language=user_language, phrase='menu_items')}"
-            f"#                                                                                                    #"
+            f"#                                                                                                    #\n"
             f"#----------------------------------------------------------------------------------------------------#"
             f"\n|===>           {languages.system('version_program')} |"
             f" {languages.system('date_program')} |"
