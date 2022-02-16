@@ -14,17 +14,16 @@ def control_panel(user_language):
         os.system("clear")
 
         print(
-            f"\n"
-            f"                               ____   _      _   _   __  __   ____  __   __ \n"
-            f"                              / ___| | |    | | | | |  \/  | / ___| \ \ / / \n"
-            f"                             | |     | |    | | | | | |\/| | \___ \  \ V /  \n"
-            f"                             | |___  | |___ | |_| | | |  | |  ___) |  | |   \n"
-            f"                              \____| |_____\ \___/  |_|  |_| |____/   |_|   \n"
+            f"######################################################################################################"
+            f"#                                                                                                    #\n"
+            f"#                             ____   _      _   _   __  __   ____  __   __                           #\n"
+            f"#                            / ___| | |    | | | | |  \/  | / ___| \ \ / /                           #\n"
+            f"#                           | |     | |    | | | | | |\/| | \___ \  \ V /                            #\n"
+            f"#                           | |___  | |___ | |_| | | |  | |  ___) |  | |                             #\n"
+            f"#                            \____| |_____\ \___/  |_|  |_| |____/   |_|                             #\n"
             f"{languages.view(language=user_language, phrase='slogan')}"
-            f"\n"
-            f"\n|===>           {languages.system('version_program')} |"
-            f" {languages.system('date_program')} |"
-            f" {languages.system('author_program')}           <===|\n"
+            f"#                                                                                                    #\n"
+            
             f"#                                                                                                    #"
         )
 
@@ -40,7 +39,7 @@ def control_panel(user_language):
         # Вывод информации.
         print(
             f"#                                                                                                    #\n"
-            f"{languages.view(language=user_language, phrase='info_title')}"
+            #f"{languages.view(language=user_language, phrase='info_title')}"
             f"#                                                                                                    #\n"
             f"{languages.view(language=user_language, phrase='info_items_status')}"
             f"#                                                                                                    #"
@@ -53,6 +52,11 @@ def control_panel(user_language):
             f"#                                                                                                    #\n"
             f"{languages.view(language=user_language, phrase='menu_items')}"
             f"#                                                                                                    #"
+            f"#----------------------------------------------------------------------------------------------------#"
+            f"\n|===>           {languages.system('version_program')} |"
+            f" {languages.system('date_program')} |"
+            f" {languages.system('author_program')}           <===|\n"
+            f"#----------------------------------------------------------------------------------------------------#"
         )
 
         # Пользовательский ввод.
