@@ -89,16 +89,19 @@ try:
         pass
     else:
 
-        #
-        # Проверяем, нужна ли первоначальная настройка.
-        #
+        # Лог о не существовании файла.
+        raise Exception(logger.add(languages.get("system", "check_file_program_settings_false"), "log"))
 
-        installed_program = system_settings.get("system", "installed_program")
+    #
+    # Проверяем, нужна ли первоначальная настройка.
+    #
 
-        if installed_program:
-            print("ok")
-        else:
-            print(2)
+    installed_program = user_settings.get("system", "installed_program")
+
+    if installed_program:
+        print("ok")
+    else:
+        print(2)
 
 except Exception as Error:
     # Лог об неудачном запуске программы.
