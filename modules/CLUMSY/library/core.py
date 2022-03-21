@@ -9,6 +9,7 @@ import os
 import pathlib
 import time
 import appearance
+
 import localization
 import languages
 import logger
@@ -30,84 +31,95 @@ PATH_USER_SETTINGS = "modules/CLUMSY/configs/user_settings.ini"
 #
 #######
 
-try:
-    # Лог о запуске программы.
-    logger.add(languages.get("system", "launch_program"), "log")
 
-    #
-    # Проверяем, существует ли файл настроек программы.
-    #
+"""
+-RU-
+Перед запуском интерфейса программы, необходимо проверить наличие файлов конфигураций.
+    Если файлы существуют, то необходимо считать с них информацию.
+    Если нет, то создать эти файлы.
+"""
 
-    # Лог о проверке.
-    logger.add(languages.get("system", "check_file_program_settings"), "log")
+interface.show(language="ru", section="start")
 
-    if pathlib.Path(PATH_SYSTEM_SETTINGS).is_file():
-        # Если файл существует.
 
-        # Лог о существовании файла.
-        logger.add(languages.get("system", "check_file_program_settings_true"), "log")
+# try:
+# Лог о запуске программы.
+#    logger.add(languages.get("system", "launch_program"), "log")
 
-        system_settings = configparser.ConfigParser()
-        system_settings.read(PATH_SYSTEM_SETTINGS)
-    else:
-        # Если файла не существует.
+#
+# Проверяем, существует ли файл настроек программы.
+#
 
-        # Лог о не существовании файла.
-        raise Exception(logger.add(languages.get("system", "check_file_program_settings_false"), "log"))
+# Лог о проверке.
+#    logger.add(languages.get("system", "check_file_program_settings"), "log")
 
-    #
-    # Проверяем, существует ли файл настроек пользователя.
-    #
+#    if path lib.Path(PATH_SYSTEM_SETTINGS).is_file():
+# Если файл существует.
 
-    # Лог о проверке.
-    logger.add(languages.get("system", "check_file_user_settings"), "log")
+# Лог о существовании файла.
+#        logger.add(languages.get("system", "check_file_program_settings_true"), "log")
 
-    if pathlib.Path(PATH_USER_SETTINGS).is_file():
-        # Если файл существует.
+#        system_settings = configparser.ConfigParser()
+#        system_settings.read(PATH_SYSTEM_SETTINGS)
+#    else:
+# Если файла не существует.
 
-        # Лог о существовании файла.
-        logger.add(languages.get("system", "check_file_user_set2tings_true"), "log")
+# Лог о не существовании файла.
+#        raise Exception(logger.add(languages.get("system", "check_file_program_settings_false"), "log"))
 
-        user_settings = configparser.ConfigParser()
-        user_settings.read(PATH_USER_SETTINGS)
-    else:
-        # Если файла не существует.
+#
+#    # Проверяем, существует ли файл настроек пользователя.
+#
 
-        # Лог о не существовании файла.
-        raise Exception(logger.add(languages.get("system", "check_file_user_settings_false"), "log"))
+# Лог о проверке.
+#    logger.add(languages.get("system", "check_file_user_settings"), "log")
 
-    #
-    # Получаем язык пользователя.
-    #
+#    if path lib.Path(PATH_USER_SETTINGS).is_file():
+# Если файл существует.
 
-    # Лог о получении языкового пакета.
-    logger.add(languages.get("system", "getting_user_language"), "log")
+# Лог о существовании файла.
+#        logger.add(languages.get("system", "check_file_user_set2tings_true"), "log")
 
-    USER_LANGUAGE = user_settings.get("system", "language")
+#        user_settings = configparser.ConfigParser()
+#        user_settings.read(PATH_USER_SETTINGS)
+#    else:
+# Если файла не существует.
 
-    if languages.check(USER_LANGUAGE):
-        pass
-    else:
+# Лог о не существовании файла.
+#        raise Exception(logger.add(languages.get("system", "check_file_user_settings_false"), "log"))
 
-        # Лог о не существовании файла.
-        raise Exception(logger.add(languages.get("system", "check_file_program_settings_false"), "log"))
+#
+# Получаем язык пользователя.
+#
 
-    #
-    # Проверяем, нужна ли первоначальная настройка.
-    #
+# Лог о получении языкового пакета.
+#    logger.add(languages.get("system", "getting_user_language"), "log")
 
-    installed_program = user_settings.get("system", "installed_program")
+#    USER_LANGUAGE = user_settings.get("system", "language")
 
-    if installed_program:
-        print("ok")
-    else:
-        print(2)
+#    if languages.check(USER_LANGUAGE):
+#        pass
+#    else:
 
-except Exception as Error:
-    # Лог об неудачном запуске программы.
-    logger.add(f"{languages.get('system', 'launch_program_false')} \n Причина: {Error}", "all")
-else:
-    # Лог об удачном запуске программы.
-    logger.add(languages.get(USER_LANGUAGE, "launch_program_true"), "all")
+# Лог о не существовании файла.
+#        raise Exception(logger.add(languages.get("system", "check_file_program_settings_false"), "log"))
 
-    #appearance.control_panel(USER_LANGUAGE)
+#
+# Проверяем, нужна ли первоначальная настройка.
+#
+
+#    installed_program = user_settings.get("system", "installed_program")
+
+#    if installed_program:
+#        print("ok")
+#    else:
+#        print(2)
+
+# except Exception as Error:
+# Лог об неудачном запуске программы.
+#    logger.add(f"{languages.get('system', 'launch_program_false')} \n Причина: {Error}", "all")
+# else:
+# Лог об удачном запуске программы.
+#    logger.add(languages.get(USER_LANGUAGE, "launch_program_true"), "all")
+
+# appearance.control_panel(USER_LANGUAGE)

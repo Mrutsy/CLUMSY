@@ -2,6 +2,35 @@ import time
 import os
 import localization
 import update
+import shutil
+
+
+def show(language, section):
+
+    if section == "logo":
+
+        # LOGO.
+        print(
+            f"######################################################################################################\n"
+            f"#                                                                                                    #\n"
+            f"#                             ____   _      _   _   __  __   ____  __   __                           #\n"
+            f"#                            / ___| | |    | | | | |  \/  | / ___| \ \ / /                           #\n"
+            f"#                           | |     | |    | | | | | |\/| | \___ \  \ V /                            #\n"
+            f"#                           | |___  | |___ | |_| | | |  | |  ___) |  | |                             #\n"
+            f"#                            \____| |_____\ \___/  |_|  |_| |____/   |_|                             #",)
+
+    elif section == "version":
+        # Загрузочный экран.
+        pass
+    elif section == "notification":
+        # Загрузочный экран.
+        pass
+    elif section == "start":
+        os.system("clear || cls")
+        show(language, "logo")
+        print(f"#                                                                                                    #\n"
+              f"######################################################################################################\n",)
+        time.sleep(3)
 
 
 def screensaver():
@@ -26,7 +55,6 @@ def general(user_language):
 
 
 def control_panel(user_language):
-
     while True:
         update.check_github()
 

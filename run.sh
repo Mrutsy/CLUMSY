@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 modules/CLUMSY/library/core.py
+python3 clumsy/modules/CLUMSY/library/core.py
