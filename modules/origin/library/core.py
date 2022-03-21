@@ -39,8 +39,8 @@ PATH_USER_SETTINGS = "modules/CLUMSY/configs/user_settings.ini"
     Если нет, то создать эти файлы.
 """
 
-interface.show(language="ru", section="start")
-
+interface.show(language="ru", section="loading")
+input()
 
 # try:
 # Лог о запуске программы.

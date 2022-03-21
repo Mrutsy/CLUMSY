@@ -13,7 +13,7 @@ def show(language, section):
         print(
             f"#                             ____   _      _   _   __  __   ____  __   __                           #\n"
             f"#                            / ___| | |    | | | | |  \/  | / ___| \ \ / /                           #\n"
-            f"#                           | |     | |    | | | | | |\/| | \___ \  \ V /                          w  #\n"
+            f"#                           | |     | |    | | | | | |\/| | \___ \  \ V /                            #\n"
             f"#                           | |___  | |___ | |_| | | |  | |  ___) |  | |                             #\n"
             f"#                            \____| |_____\ \___/  |_|  |_| |____/   |_|                             #",)
 
@@ -23,13 +23,10 @@ def show(language, section):
     elif section == "notification":
         # Загрузочный экран.
         pass
-    elif section == "start":
+    elif section == "loading":
 
-        os.system("clear || cls")
-        print(f"######################################################################################################\n",)
-        show(language, "logo")
-        print(f"#                                                                                                    #\n"
-              f"######################################################################################################\n",)
+        os.system("clear")
+        print(localization.view(user_language="system", phrase="screensaver"))
         time.sleep(1)
 
 
